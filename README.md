@@ -1,6 +1,6 @@
 # Projet INFO802 : Détection de Droites avec la Transformation de Hough
 
-Ce projet implémente la **transformée de Hough** qui une technique utilisée pour détecter des formes géométriques dans des images, en particulier les lignes droites. Le code permet de lire une image en format **PPM**, de la convertir en binaire puis d'appliquer la transformée de Hough pour détecter les lignes. Il fournit également des outils pour enregistrer les résultats sous forme de nouvelles images.
+Ce projet implémente la **transformée de Hough** qui est une technique utilisée pour détecter des formes géométriques dans des images, en particulier les lignes droites. Le code permet de lire une image en format **PPM**, de la convertir en binaire puis d'appliquer la transformée de Hough pour détecter les lignes. Il fournit également des outils pour enregistrer les résultats sous forme de nouvelles images.
 
 ## Description du projet
 
@@ -14,7 +14,7 @@ Le projet comprend également des outils de **gestion de version** avec **Git**.
 
 ## Fonctionnalités principales
 
-- **Lecture d’image PPM** : Chargement d’une image avec la gestion des en-têtes, commentaires et pixels RGB.
+- **Lecture d’image PPM** : Chargement d’une image avec la gestion des en-têtes, commentaires et pixels RGB (rouge-vert-bleu).
 - **Conversion binaire** : Conversion des pixels d’une image en binaire selon un seuil de gris.
 - **Transformée de Hough** :
   - **Méthode naïve** : Utilisation d’un espace d’accumulation pour détecter les lignes droites dans l’image.
