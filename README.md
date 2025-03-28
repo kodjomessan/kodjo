@@ -82,4 +82,4 @@ Le projet a été optimisé pour traiter des images de tailles variées. Toutefo
 Ce projet utilise les outils suivants :
 - **C++**
 - **Bibliothèque Standard C++**
-- **Python** pour avoir transformé les images PPM en JPG
+- **Python** pour avoir transformé les images PPM en JPG (programme directement trouvé sur internet)
