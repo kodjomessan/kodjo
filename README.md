@@ -12,6 +12,15 @@ Le but de ce projet est de montrer comment appliquer la transformée de Hough su
 
 Le projet comprend également des outils de **gestion de version** avec **Git**.
 
+Durant ce projet, nous allons appliquer 2 types de méthodes: 
+- **méthode naive**:
+  - détection de droite à partir de l'équation *y = mx + b* et conversion dans l'espace de Hough
+  - utilisation d'un accumulateur pour détecter les intersections dznd l'espace de Hough
+
+- **méthode moins naive**:
+  - utilisation de l'équation polaire y = -(cos(theta)/sin(theta))x + rho/sin(theta), permettant une meilleure gestion des droites
+  - visualisation de la sinusoidale dans l'espace de Hough pour chaque pixel du contour. 
+
 ## Fonctionnalités principales
 
 - **Lecture d’image PPM** : Chargement d’une image avec la gestion des en-têtes, commentaires et pixels RGB (rouge-vert-bleu).
@@ -26,10 +35,29 @@ Le projet comprend également des outils de **gestion de version** avec **Git**.
 Le projet est organisé de la manière suivante :
 
 - `lecteur_ppm.h` et `lecteur_ppm.cpp` : Fonction pour lire une image en format PPM.
+  - définition des structures (couleur et image)
+  - lire_image_ppm(): ouvre et lit l'image au format PPM; ignore les commentaires et extrait la largeur/hauteur/valeur maximale; stocke les pixels dans une matrice
+  - afficheImage(): affiche les pixels de l'image sous forme de valeurs RGB pour effecteur la vérification
 - `conversion_binaire.h` et `conversion_binaire.cpp` : Fonction pour convertir une image en binaire à l’aide d’un seuil.
+  - convertir_en_binaire(): convertit chaque pixel en niveau de gris (Formule niveau de gris : 0.299R + 0.587G + 0.114B)
+  - application d'un seuil (Noir (0,0,0) si valeur < seuil et Blanc (255,255,255) sinon)
+  - retourne l'image binaire 
 - `ecriture_ppm.h` et `ecriture_ppm.cpp` : Fonction pour écrire une image en format PPM.
+  - vérifie si le fichier peut être ouvert avant
+  - écrit de l'en-tête avec la largeur/hauteur/valeur maximale des pixels
+  - parcourt des pixels et écriture des valeurs RGB dans le fichier
+  - affichage d'un message de confirmation une fois l'image enregistrée
 - `hough_naif.h` et `hough_naif.cpp` : Implémentation d’une approche naïve de la transformée de Hough pour détecter les lignes.
+  - initialisation de la transformée de Hough
+  - création d'un accumulateur (une matrice) pour stocker les votes des droites détectées
+  - parcourt des pixels blancs de l'image binaire pour identifier les points d'intérêt
+  - calcul des paramètres de la droite pour chaque pixel blanc et incrémentation de l'accumulateur en conséquence
+  - Attention, on ignore les pixels noirs
+  - vérification que les valeurs calculées restent dans les bornes définies pour éviter les erreurs d'accès à l'accumulateur 
 - `hough_polaire.h` et `hough_polaire.cpp` : Implémentation de la transformée de Hough dans l’espace polaire pour détecter les lignes.
+  - définition des plages de theta et rho puis initialisation de l'accumulateur
+  - remplissage de l'accumulateur (calcul de rho et theta pour chaque pixel et mise à jour de l'accumulateur)
+  - affichage des droites détectées (droites dont le nombre de votes dans l'accumulateur dépasse le seuil donné)
 
 ### Fichiers principaux
 
@@ -64,6 +92,12 @@ Ces fonctionnalités sont implémentées dans les fichiers suivants :
 
 - `extraction_pixels.h` et `extraction_pixels.cpp` : Définissent les fonctions permettant d’extraire les pixels blancs d’une image binaire.
 
+## Difficultés rencontrées 
+
+- gestion de Git puisque c'était un nouvel outil pour nous
+- problèmes de coordination des fichiers entre nous avec VisualStudio Code et VisualStudio
+- perte de temps sur la gestion des codes (nous avancions mais nous ne testions pas toujours)
+- manque de temps dans la conception de notre projet pour finaliser
 
 ## Perspective : Détection de Cercles
 Bien que ce projet se concentre principalement sur la détection de droites, il est également possible d'étendre l’algorithme pour tenter de détecter des formes circulaires. En ajustant la transformée de Hough pour travailler avec des cercles plutôt qu’avec des lignes, on peut détecter des arcs ou des cercles dans une image en utilisant des paramètres spécifiques à cette forme.
@@ -83,3 +117,5 @@ Ce projet utilise les outils suivants :
 - **C++**
 - **Bibliothèque Standard C++**
 - **Python** pour avoir transformé les images PPM en JPG (programme directement trouvé sur internet)
+
+
