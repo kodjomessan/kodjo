@@ -39,3 +39,28 @@ Le projet est organisé de la manière suivante :
 - **hough_naif.h / hough_naif.cpp** : Implémentation de l'algorithme de la transformée de Hough. Ce fichier inclut des fonctions pour initialiser l’espace d’accumulation et y insérer les données issues des pixels de l’image binaire.
 - **hough_polaire.h / hough_polaire.cpp** : Implémentation de l’algorithme de la transformée de Hough dans l’espace polaire. Ce fichier inclut des fonctions pour initialiser l’accumulateur polaire, y insérer les données des pixels blancs et afficher les lignes détectées avec un certain seuil de votes.
 
+### Ajout : Extraction et Dessin des Droites
+
+Le projet inclut également des fonctionnalités pour extraire les pixels blancs d’une image binaire et dessiner les droites détectées par la transformée de Hough :
+
+- **Dessin des droites naïves** :
+  - Sélection des 10 droites ayant le plus de votes.
+  - Tri des droites détectées par leur nombre de votes décroissant.
+  - Traçage des droites détectées sur l’image originale en rouge.
+
+- **Dessin des droites dans l’espace polaire** :
+
+  - Détection des droites avec un accumulateur polaire.
+  - Dessin des lignes sur l’image d’entrée.
+
+- **Extraction des pixels blancs** :
+
+  - Lecture d’une image binaire pour récupérer les coordonnées des pixels blancs.
+  - Stockage des points sous forme de paires `(x, y)`.
+
+Ces fonctionnalités sont implémentées dans les fichiers suivants :
+
+- `dessin_droite.h` et `dessin_droite.cpp` : Contiennent les fonctions permettant de dessiner les droites détectées.
+
+- `extraction_pixels.h` et `extraction_pixels.cpp` : Définissent les fonctions permettant d’extraire les pixels blancs d’une image binaire.
+
