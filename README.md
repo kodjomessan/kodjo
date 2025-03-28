@@ -64,3 +64,22 @@ Ces fonctionnalités sont implémentées dans les fichiers suivants :
 
 - `extraction_pixels.h` et `extraction_pixels.cpp` : Définissent les fonctions permettant d’extraire les pixels blancs d’une image binaire.
 
+
+## Perspective : Détection de Cercles
+Bien que ce projet se concentre principalement sur la détection de droites, il est également possible d'étendre l’algorithme pour tenter de détecter des formes circulaires. En ajustant la transformée de Hough pour travailler avec des cercles plutôt qu’avec des lignes, on peut détecter des arcs ou des cercles dans une image en utilisant des paramètres spécifiques à cette forme.
+
+## Cas d'Utilisation
+Ce projet peut être appliqué dans différents domaines où la détection de droites est nécessaire, tels que :
+- **Navigation autonome** : Utilisation pour détecter des routes ou des lignes sur la route pour la conduite autonome.
+- **Analyse d'images satellites** : Détection des infrastructures linéaires comme les routes, les chemins de fer, ou les réseaux électriques.
+- **Vision industrielle** : Identification des défauts dans des matériaux ou produits fabriqués à l’aide de la détection des bords.
+- **Analyse d’architecture** : Détection de lignes et de bords dans des images d’architectures ou de plans de bâtiments.
+
+## Optimisation et Performances
+Le projet a été optimisé pour traiter des images de tailles variées. Toutefois, il est important de noter que la complexité de la transformée de Hough peut augmenter considérablement avec la taille de l'image et la résolution de l'accumulateur. Des techniques d'optimisation supplémentaires pourraient être explorées pour améliorer les performances sur de grandes images.
+
+## Dépendances et Configuration
+Ce projet utilise les outils suivants :
+- **C++**
+- **Bibliothèque Standard C++**
+- **Python** pour avoir transformé les images PPM en JPG
