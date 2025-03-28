@@ -99,8 +99,10 @@ Ces fonctionnalités sont implémentées dans les fichiers suivants :
 - perte de temps sur la gestion des codes (nous avancions mais nous ne testions pas toujours)
 - manque de temps dans la conception de notre projet pour finaliser
 
-## Perspective : Détection de Cercles
-Bien que ce projet se concentre principalement sur la détection de droites, il est également possible d'étendre l’algorithme pour tenter de détecter des formes circulaires. En ajustant la transformée de Hough pour travailler avec des cercles plutôt qu’avec des lignes, on peut détecter des arcs ou des cercles dans une image en utilisant des paramètres spécifiques à cette forme.
+
+## Optimisation et Performances
+Le projet a été optimisé pour traiter des images de tailles variées. Toutefois, il est important de noter que la complexité de la transformée de Hough peut augmenter considérablement avec la taille de l'image et la résolution de l'accumulateur. Des techniques d'optimisation supplémentaires pourraient être explorées pour améliorer les performances sur de grandes images.
+
 
 ## Cas d'Utilisation
 Ce projet peut être appliqué dans différents domaines où la détection de droites est nécessaire, tels que :
@@ -109,8 +111,9 @@ Ce projet peut être appliqué dans différents domaines où la détection de dr
 - **Vision industrielle** : Identification des défauts dans des matériaux ou produits fabriqués à l’aide de la détection des bords.
 - **Analyse d’architecture** : Détection de lignes et de bords dans des images d’architectures ou de plans de bâtiments.
 
-## Optimisation et Performances
-Le projet a été optimisé pour traiter des images de tailles variées. Toutefois, il est important de noter que la complexité de la transformée de Hough peut augmenter considérablement avec la taille de l'image et la résolution de l'accumulateur. Des techniques d'optimisation supplémentaires pourraient être explorées pour améliorer les performances sur de grandes images.
+## Perspective : Détection de Cercles
+Bien que ce projet se concentre principalement sur la détection de droites, il est également possible d'étendre l’algorithme pour tenter de détecter des formes circulaires. En ajustant la transformée de Hough pour travailler avec des cercles plutôt qu’avec des lignes, on peut détecter des arcs ou des cercles dans une image en utilisant des paramètres spécifiques à cette forme.
+
 
 ## Dépendances et Configuration
 Ce projet utilise les outils suivants :
